@@ -10,6 +10,10 @@ SCREEN_HEIGHT = 1024
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 clock = pygame.time.Clock()
+# Basic Sprites are here
+background = pygame.transform.scale2x(pygame.image.load('assets/background-day.png').convert())
+ground = pygame.transform.scale2x(pygame.image.load('assets/base.png').convert())
+blue_bird_middle = pygame.transform.scale2x(pygame.image.load('assets/bluebird-midflap.png').convert())
 
 # Main game magic
 while True:
@@ -20,6 +24,10 @@ while True:
         if event.type == pygame.K_SPACE:
             print('Space is pressed')
             # Todo action on jump
+
+    # Display of sprites
+    screen.blit(background,(0,0))
+    screen.blit(ground,(0,900))
 
     pygame.display.update()
     clock.tick(120)
